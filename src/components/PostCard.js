@@ -1,14 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PostCard = (props) => {
-  const { title, body } = props.post;
+  const { id, title, body } = props.post;
 
   return (
     <div className="item">
       <div className="content">
         <i className="star alternate icon"></i>
-        <div className="header">{title}</div>
-        <div>{body}</div>
+        {/* to pass data to PostDetails component (from one route to another) use Link component and inlcude state prop with the data, which need to be passed */}
+        <Link to={`/posts/${id}`} state={{ post: props.post }}>
+          <div className="header">{title}</div>
+          <div>{body}</div>
+        </Link>
       </div>
     </div>
   );

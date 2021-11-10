@@ -1,13 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PostCard from "./PostCard";
 
 const PostList = (props) => {
   // getting data from parent component through props
   const renderPostList = props.posts.map((post) => {
-    return <PostCard post={post} />;
+    return <PostCard post={post} key={post.id} />;
   });
 
-  return <div className="ui celled list">{renderPostList}</div>;
+  return (
+    <div className="ui main">
+      <h2>Newest Posts</h2>
+      <Link to="/add">
+        <button className="ui button blue">Add New Post</button>
+      </Link>
+      <div className="ui celled list">{renderPostList}</div>
+    </div>
+  );
 };
 
 export default PostList;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Header";
 import PostList from "./PostList";
@@ -12,7 +13,6 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   const addPostHandler = (post) => {
-    console.log(post);
     setPosts([...posts, post]);
   };
 
@@ -29,10 +29,18 @@ function App() {
   return (
     <div className="ui container">
       <Header />
-      {/* getting data from child component using handler function */}
-      <AddPost addPostHandler={addPostHandler} />
-      {/* passing data to child component by using props */}
-      <PostList posts={posts} />
+      <BrowserRouter>
+        <Routes>
+          {/* passing data to child component by using props */}
+          <Route path="/" element={<PostList posts={posts} />} />
+          {/* getting data from child component using handler function */}
+          <Route
+            path="/add"
+            element={<AddPost addPostHandler={addPostHandler} />}
+          />
+          <Route path="/posts/:id" element={<PostDetails />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

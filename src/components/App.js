@@ -50,20 +50,22 @@ function App() {
   }, []);
 
   return (
-    <div className="ui container">
+    <div>
       <Header />
-      <BrowserRouter>
-        <Routes>
-          {/* passing data to child component by using props */}
-          <Route path="/" element={<PostList posts={posts} />} />
-          {/* getting data from child component using handler function */}
-          <Route
-            path="/add"
-            element={<AddPost addPostHandler={addPostHandler} />}
-          />
-          <Route path="/posts/:id" element={<PostDetails />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="ui container">
+        <BrowserRouter>
+          <Routes>
+            {/* passing data to child component by using props */}
+            <Route path="/" element={<PostList posts={posts} />} />
+            {/* getting data from child component using handler function */}
+            <Route
+              path="/add"
+              element={<AddPost addPostHandler={addPostHandler} />}
+            />
+            <Route path="/posts/:id" element={<PostDetails />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }

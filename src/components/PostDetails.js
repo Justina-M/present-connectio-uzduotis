@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
-import headerImg from "../images/bakery.jpg";
+import postImg from "../images/img-placeholder.png";
 
 const PostDetails = () => {
   // use hook useLocation to get the data from location.state property
@@ -12,19 +12,19 @@ const PostDetails = () => {
 
   return (
     <div className="main">
-      <div className="ui card centered">
-        <div className="image">
-          <img src={headerImg} alt="header"></img>
+      <div className="single-post_container">
+        <div className="single-post__img">
+          <img src={postImg} alt=""></img>
         </div>
-        <div className="content">
-          <div className="header">{title}</div>
-          <div className="description">{body}</div>
+        <div className="single-post__content">
+          <h2 className="ui header text-uppercase">{title}</h2>
+          <div className="margin-bottom">{body}</div>
+          <div>
+            <Link to="..">
+              <button className="ui button violet">Back to Post List</button>
+            </Link>
+          </div>
         </div>
-      </div>
-      <div>
-        <Link to="..">
-          <button className="ui button blue">Back to Post List</button>
-        </Link>
       </div>
     </div>
   );

@@ -2,10 +2,8 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="ui menu">
-      <div className="ui container center">
-        <h2>Posts</h2>
-      </div>
+    <div className="app-header">
+      <h1 class="ui center aligned header text-uppercase">The greatest app</h1>
     </div>
   );
 };

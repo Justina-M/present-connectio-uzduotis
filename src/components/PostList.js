@@ -10,11 +10,16 @@ const PostList = (props) => {
 
   return (
     <div className="ui main">
-      <h2>Newest Posts</h2>
-      <Link to="/add">
-        <button className="ui button blue">Add New Post</button>
-      </Link>
-      <div className="ui celled list">{renderPostList}</div>
+      <div className="flex-container margin-bottom">
+        <h2 className="ui header">Newest Posts</h2>
+        <Link to="/add">
+          <button className="ui button right floated violet">
+            Add New Post
+          </button>
+        </Link>
+      </div>
+
+      <div className="ui centered cards">{renderPostList}</div>
     </div>
   );
 };

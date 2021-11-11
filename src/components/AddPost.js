@@ -112,7 +112,7 @@ const AddPost = (props) => {
             }}
           ></textarea>
         </div>
-        <button className="ui button blue">Save Post</button>
+        <button className="ui button violet">Save Post</button>
       </form>
     </div>
   );

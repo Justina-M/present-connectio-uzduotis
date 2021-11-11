@@ -61,7 +61,6 @@ class AddPost extends React.Component {
 }
 
 const AddPost = (props) => {
-  const [postId, setPostId] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [postBody, setPostBody] = useState("");
 
@@ -75,10 +74,9 @@ const AddPost = (props) => {
     }
 
     // sending data to parent component through props.handler
-    props.addPostHandler({ id: postId, title: postTitle, body: postBody });
+    props.addPostHandler({ title: postTitle, body: postBody });
 
     // clear the fields
-    setPostId("");
     setPostTitle("");
     setPostBody("");
 
@@ -90,18 +88,6 @@ const AddPost = (props) => {
     <div className="ui main">
       <h2>Add Post</h2>
       <form className="ui form" onSubmit={add}>
-        <div className="field">
-          <label>ID</label>
-          <input
-            type="number"
-            name="id"
-            placeholder="Add post ID"
-            value={postId}
-            onChange={(e) => {
-              setPostId(e.target.value);
-            }}
-          ></input>
-        </div>
         <div className="field">
           <label>Post title</label>
           <input
